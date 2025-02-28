@@ -417,6 +417,9 @@ export default function MemeExplorerPage() {
     fetchMemes();
   }, [page]);
 
+
+
+
   useEffect(() => {
     setPage(1);
     setMemes([]); // Reset memes when category or search changes
@@ -551,7 +554,7 @@ const addComment = async (id: number) => {
   
       if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
   
-      const data = await res.json();
+       await res.json();
       setComments((prev) => ({
         ...prev,
         [id]: [...(prev[id] || []), newComment], // ✅ Append new comment
